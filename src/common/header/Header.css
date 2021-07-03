@@ -1,0 +1,37 @@
+.heading{
+    background-color: #222;
+     height: 36px; 
+    padding: 8px 32px 8px 16px;
+    display: flex;
+    justify-content: flex-start;
+
+    
+    
+}
+
+.login{
+    position: absolute;
+    left: 1200px;
+}
+.book{
+    position: absolute;
+    left: 1000px;
+}
+    
+
+#logo-properties{
+    background-color: #ff7f7f;
+    height: 35px;
+    animation:  animate 8s linear infinite;
+    
+
+}
+
+@keyframes animate{
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(360deg);
+    }
+}
