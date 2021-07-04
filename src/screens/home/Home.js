@@ -1,8 +1,8 @@
 import React from 'react'
-import Header from '../../common/header/Header_modal'
+import Header from '../../common/header/Header';
 import './home.css';
-import SingleLineGridList from '../../common/GridList';
-
+import UpComingMoviesList from '../../common/UpComingMoviesList';
+import ShowingReleasedMovies from '../../common/ShowingReleasedMovies';
 
 
 export default function Home(){
@@ -10,7 +10,9 @@ export default function Home(){
         <div>
         <Header />
         <div className='upcoming'>Upcoming Movies</div>
-        <SingleLineGridList />
+        <UpComingMoviesList />
+        <ShowingReleasedMovies />
+        
        
 
 

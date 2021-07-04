@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
+    flexDirection:'row',
     //backgroundColor: theme.palette.background.paper,
   },
   gridList: {
@@ -31,46 +32,41 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function SingleLineGridList() {
+export default function UpComingMoviesList() {
   const classes = useStyles();
 
-  const [upcomingMovieList, setstate] = useState([])
+  const [tileData, setstate] = useState([])
 
 
 
   function loadData() {
     fetch("http://localhost:8085/api/v1/movies")
       .then(input => input.json())
-      .then(data => setstate(data))
+      .then(data => setstate(data.movies))
   }
-  useEffect(() => {
-  
-    loadData();
-    console.log('success');
-    
-  })
+  useEffect(() => {  
+    loadData(); 
+  },[1])
+
   return (
     <div className={classes.root}>
-      <GridList className={classes.gridList} cols={6}>
-        {upcomingMovieList.map(tile => {
+      <GridList cellHeight={250} className={classes.gridList} cols={6}>
+        {tileData.map((tile) => (
           <GridListTile key={tile.id}>
-            <img src={tile.poster_url} alt={tile.code} />
+            <img src={tile.poster_url} alt={tile.title} />
             <GridListTileBar
               title={tile.title}
-              classes={{
-                root: classes.titleBar,
-                title: classes.title,
-              }}
-              actionIcon={
-                <IconButton aria-label={`star ${tile.title}`}>
-                  <StarBorderIcon className={classes.title} />
-                </IconButton>
-              }
+                 
             />
           </GridListTile>
-})}
+        ))}
       </GridList>
     </div>
       
-   )
+   );
+  
 }
+
+
+
+
